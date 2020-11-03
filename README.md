@@ -1,5 +1,5 @@
-FuSe — A Simple Library Implementation of Binary Sessions
-=========================================================
+A Simple Library Implementation of Binary Sessions
+==================================================
 
 Overview
 --------
@@ -49,8 +49,9 @@ You need [OCaml](http://www.ocaml.org) to compile FuSe.
 Documentation
 -------------
 
-Users may refer to the API documentation extracted with `ocamldoc`
-in the `docs` folder and to the papers (see below).
+Users may refer to the [API
+documentation](https://github.com/boystrange/FuSe) extracted with
+`ocamldoc` in the `docs` folder and to the papers (see below).
 
 Example
 -------
@@ -126,6 +127,9 @@ val mother : α → β → &[ Add: ?γ.rec X.&[ Add: ?δ.X | CheckOut: ?α.?β ]
              ?(δ → δ).!ε Service.t → γ → unit
 val son : ?(α → β).!β Service.t → α → unit
 ```
+
+Bibliography
+------------
 
 [GayHole05]: Simon J. Gay and Malcolm Hole: [Subtyping for session
 types in the pi
