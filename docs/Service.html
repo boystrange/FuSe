@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Session.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Session" rel="Chapter" href="Session.html">
+<link title="Service" rel="Chapter" href="Service.html"><title>Service</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Session.html" title="Session">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Service.html">Service</a></h1>
+
+<pre><span id="MODULEService"><span class="keyword">module</span> Service</span>: <code class="code">sig</code> <a href="Service.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>OCaml implementation of featherweight services.</p>
+</div>
+<ul class="info-attributes">
+<li><b>Author(s):</b> Luca Padovani</li>
+<li><b>Version:</b> 0.4</li>
+</ul>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The type of a service that accepts sessions of type <code class="code">'a</code>.</p>
+</div>
+</div>
+
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> 'a <a href="Service.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">create ()</code> creates a new service.</p>
+</div>
+</div>
+
+<pre><span id="VALaccept"><span class="keyword">val</span> accept</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> <a href="Service.html#TYPEt">t</a> -> ('a, 'b) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">accept s</code> waits for a connection from a client to service <code class="code">s</code>.</p>
+</div>
+<ul class="info-attributes">
+<li><b>Returns</b> the endpoint of the established session.</li>
+</ul>
+</div>
+
+<pre><span id="VALrequest"><span class="keyword">val</span> request</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> <a href="Service.html#TYPEt">t</a> -> ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">request s</code> requests a connection to a service <code class="code">s</code>.</p>
+</div>
+<ul class="info-attributes">
+<li><b>Returns</b> the endpoint of the established session.</li>
+</ul>
+</div>
+
+<pre><span id="VALspawn"><span class="keyword">val</span> spawn</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> unit) -> ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> <a href="Service.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">spawn f</code> creates a persistent service that spawns a new thread <code class="code">f ep</code> for each connection with endpoint <code class="code">ep</code> accepted from a client.</p>
+</div>
+</div>
+</body></html>

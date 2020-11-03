@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=utf8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Session.Bare.html">
+<link rel="Up" href="Session.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Session" rel="Chapter" href="Session.html">
+<link title="Service" rel="Chapter" href="Service.html"><title>Session.Monadic</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Session.Bare.html" title="Session.Bare">Previous</a>
+&nbsp;<a class="up" href="Session.html" title="Session">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Session.Monadic.html">Session.Monadic</a></h1>
+
+<pre><span id="MODULEMonadic"><span class="keyword">module</span> Monadic</span>: <code class="code">sig</code> <a href="Session.Monadic.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">('t0, 't1, 'a)</code> t</span> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>The type of a computation that returns a result of type <code class="code">'a</code>
+  while using a session endpoint and changing its type from <code class="code">'t0</code> to
+  <code class="code">'t1</code>.</p>
+</div>
+</div>
+
+
+<pre><span id="VALreturn"><span class="keyword">val</span> return</span> : <code class="type">'m -> ('t0, 't0, 'm) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">return e</code> is the trivial monadic computation that does not
+  perform communications and returns the value of <code class="code">e</code>.</p>
+</div>
+</div>
+
+<pre><span id="VAL(>>=)"><span class="keyword">val</span> (&gt;&gt;=)</span> : <code class="type">('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       ('a -> ('t1, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a>) -> ('t0, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>The monadic composition operator.</p>
+</div>
+</div>
+
+<pre><span id="VAL(>>>)"><span class="keyword">val</span> (&gt;&gt;&gt;)</span> : <code class="type">('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       ('t1, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a> -> ('t0, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">m1 &gt;&gt;&gt; m2</code> is a shortcut for <code class="code">m1 &gt;&gt;= fun _ -&gt; m2</code>.</p>
+</div>
+</div>
+
+<pre><span id="VALfix"><span class="keyword">val</span> fix</span> : <code class="type">(('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -> ('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a>) -><br>       ('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Fixpoint operator for monadic computations. <code class="code">fix (fun x -&gt; m)</code>
+  represents the same computation as <code class="code">m</code> in which <code class="code">x</code> is bound to <code class="code">m</code>
+  itself.</p>
+</div>
+</div>
+
+<pre><span id="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, <a href="Session.html#TYPEet">Session.et</a>, unit) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       (('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, <a href="Session.html#TYPEet">Session.et</a>, 'm) <a href="Session.Monadic.html#TYPEt">t</a> -> 'm</code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">connect ms mc</code> creates a new session that connects the server
+  <code class="code">ms</code>, spawned into a new thread, and the client <code class="code">mc</code>. The result is
+  that returned by the client.</p>
+</div>
+</div>
+
+<pre><span id="VALreceive"><span class="keyword">val</span> receive</span> : <code class="type">(('m * ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEit">Session.it</a>, ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, 'm)<br>       <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">receive</code> waits for a message from the session endpoint and
+  returns its value.</p>
+</div>
+</div>
+
+<pre><span id="VALsend"><span class="keyword">val</span> send</span> : <code class="type">'m -><br>       (('m * ('b, 'a) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEot">Session.ot</a>, ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, unit)<br>       <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">send e</code> sends the message <code class="code">e</code> on the session endpoint.</p>
+</div>
+</div>
+
+<pre><span id="VALbranch"><span class="keyword">val</span> branch</span> : <code class="type">('t0, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       ('t1, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       (('t0, 't1) <a href="Session.html#TYPEchoice">Session.choice</a> <a href="Session.html#TYPEit">Session.it</a>, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">branch mtrue mfalse</code> accepts a boolean selection from the
+  session endpoint and executes either <code class="code">mtrue</code> or <code class="code">mfalse</code>
+  accordingly.</p>
+</div>
+</div>
+
+<pre><span id="VALselect_true"><span class="keyword">val</span> select_true</span> : <code class="type">((('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, ('d, 'c) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEchoice">Session.choice</a> <a href="Session.html#TYPEot">Session.ot</a>,<br>        ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, unit)<br>       <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">select_true</code> selects the <code class="code">True</code> branch of a choice.</p>
+</div>
+</div>
+
+<pre><span id="VALselect_false"><span class="keyword">val</span> select_false</span> : <code class="type">((('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, ('d, 'c) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEchoice">Session.choice</a> <a href="Session.html#TYPEot">Session.ot</a>,<br>        ('c, 'd) <a href="Session.html#TYPEst">Session.st</a>, unit)<br>       <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">select_false</code> selects the <code class="code">False</code> branch of a choice.</p>
+</div>
+</div>
+</body></html>
