@@ -50,7 +50,7 @@ Documentation
 -------------
 
 Users may refer to the [API
-documentation](https://github.com/boystrange/FuSe) extracted with
+documentation](https://boystrange.github.io/FuSe/) extracted with
 `ocamldoc` in the `docs` folder and to the papers (see below).
 
 Example
