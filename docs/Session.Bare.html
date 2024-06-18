@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -27,7 +27,7 @@
 
 <pre><span id="MODULEBare"><span class="keyword">module</span> Bare</span>: <code class="code">sig</code> <a href="Session.Bare.html">..</a> <code class="code">end</code></pre><hr width="100%">
 <h3 id="2_Sessioninitiationandtermination">Session initiation and termination</h3>
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?name:string -> unit -> ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> * ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?name:string -&gt; unit -&gt; ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> * ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">create ()</code> creates a new session.</p>
 </div>
@@ -37,7 +37,7 @@ valid endpoints and dual types.</li>
 </ul>
 </div>
 
-<pre><span id="VALclose"><span class="keyword">val</span> close</span> : <code class="type"><a href="Session.html#TYPEet">Session.et</a> -> unit</code></pre><div class="info ">
+<pre><span id="VALclose"><span class="keyword">val</span> close</span> : <code class="type"><a href="Session.html#TYPEet">Session.et</a> -&gt; unit</code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">close ep</code> closes endpoint <code class="code">ep</code>.</p>
 </div>
@@ -47,7 +47,7 @@ valid endpoints and dual types.</li>
 </ul>
 </div>
 <h3 id="2_Basicmessagepassing">Basic message passing</h3>
-<pre><span id="VALsend"><span class="keyword">val</span> send</span> : <code class="type">'m -> ('m * ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEot">Session.ot</a> -> ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VALsend"><span class="keyword">val</span> send</span> : <code class="type">'m -&gt; ('m * ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEot">Session.ot</a> -&gt; ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">send e ep</code> sends <code class="code">e</code> on the endpoint <code class="code">ep</code> with output
  capability.</p>
@@ -59,7 +59,7 @@ valid endpoints and dual types.</li>
 </ul>
 </div>
 
-<pre><span id="VALreceive"><span class="keyword">val</span> receive</span> : <code class="type">('m * ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEit">Session.it</a> -> 'm * ('a, 'b) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VALreceive"><span class="keyword">val</span> receive</span> : <code class="type">('m * ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEit">Session.it</a> -&gt; 'm * ('a, 'b) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">receive ep</code> receives a message from the endpoint <code class="code">ep</code> with
  input capability.</p>
@@ -72,7 +72,7 @@ valid endpoints and dual types.</li>
 </ul>
 </div>
 <h3 id="2_Choices">Choices</h3>
-<pre><span id="VALselect"><span class="keyword">val</span> select</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> 'm) -> 'm <a href="Session.html#TYPEot">Session.ot</a> -> ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VALselect"><span class="keyword">val</span> select</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -&gt; 'm) -&gt; 'm <a href="Session.html#TYPEot">Session.ot</a> -&gt; ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">select f ep</code> sends <code class="code">f</code> to the peer endpoint of <code class="code">ep</code>, where it
 is used to compute the received message.</p>
@@ -83,7 +83,7 @@ is used to compute the received message.</p>
 </ul>
 </div>
 
-<pre><span id="VALselect_true"><span class="keyword">val</span> select_true</span> : <code class="type">[> `True of ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> ] <a href="Session.html#TYPEot">Session.ot</a> -> ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VALselect_true"><span class="keyword">val</span> select_true</span> : <code class="type">[&gt; `True of ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> ] <a href="Session.html#TYPEot">Session.ot</a> -&gt; ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">select_true ep</code> selects the <code class="code">True</code> branch of a choice.</p>
 </div>
@@ -94,7 +94,7 @@ is used to compute the received message.</p>
 </ul>
 </div>
 
-<pre><span id="VALselect_false"><span class="keyword">val</span> select_false</span> : <code class="type">[> `False of ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> ] <a href="Session.html#TYPEot">Session.ot</a> -> ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VALselect_false"><span class="keyword">val</span> select_false</span> : <code class="type">[&gt; `False of ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> ] <a href="Session.html#TYPEot">Session.ot</a> -&gt; ('b, 'a) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">select_false ep</code> selects the <code class="code">False</code> branch of a choice.</p>
 </div>
@@ -104,7 +104,7 @@ is used to compute the received message.</p>
 </ul>
 </div>
 
-<pre><span id="VALbranch"><span class="keyword">val</span> branch</span> : <code class="type">([>  ] as 'm) <a href="Session.html#TYPEit">Session.it</a> -> 'm</code></pre><div class="info ">
+<pre><span id="VALbranch"><span class="keyword">val</span> branch</span> : <code class="type">([&gt;  ] as 'm) <a href="Session.html#TYPEit">Session.it</a> -&gt; 'm</code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">branch ep</code> receives a selection from the endpoint <code class="code">ep</code> with
  input capability.</p>
@@ -117,7 +117,7 @@ is used to compute the received message.</p>
 </ul>
 </div>
 <h3 id="2_Endpointvalidityandidentity">Endpoint validity and identity</h3>
-<pre><span id="VALis_valid"><span class="keyword">val</span> is_valid</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> bool</code></pre><div class="info ">
+<pre><span id="VALis_valid"><span class="keyword">val</span> is_valid</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -&gt; bool</code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">is_valid ep</code> determines whether <code class="code">ep</code> is a valid endpoint or not.</p>
 </div>
@@ -126,7 +126,7 @@ is used to compute the received message.</p>
 </ul>
 </div>
 
-<pre><span id="VALacquire"><span class="keyword">val</span> acquire</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> ('a, 'b) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VALacquire"><span class="keyword">val</span> acquire</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -&gt; ('a, 'b) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">acquire ep</code> acquires the endpoint <code class="code">ep</code>, if it is valid.</p>
 </div>
@@ -136,7 +136,7 @@ is used to compute the received message.</p>
 </ul>
 </div>
 
-<pre><span id="VALtry_acquire"><span class="keyword">val</span> try_acquire</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> option</code></pre><div class="info ">
+<pre><span id="VALtry_acquire"><span class="keyword">val</span> try_acquire</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -&gt; ('a, 'b) <a href="Session.html#TYPEst">Session.st</a> option</code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">try_acquire ep</code> attempts to acquire the endpoint <code class="code">ep</code>.</p>
 </div>
@@ -146,7 +146,7 @@ is used to compute the received message.</p>
 </ul>
 </div>
 
-<pre><span id="VALsame_session"><span class="keyword">val</span> same_session</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> ('c, 'd) <a href="Session.html#TYPEst">Session.st</a> -> bool</code></pre><div class="info ">
+<pre><span id="VALsame_session"><span class="keyword">val</span> same_session</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -&gt; ('c, 'd) <a href="Session.html#TYPEst">Session.st</a> -&gt; bool</code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">same_session ep ep'</code> checks whether <code class="code">ep</code> and <code class="code">ep'</code> are endpoints
  of the same session (but not necessarily peer endpoints).</p>
@@ -157,14 +157,14 @@ is used to compute the received message.</p>
 </ul>
 </div>
 
-<pre><span id="VALstring_of_endpoint"><span class="keyword">val</span> string_of_endpoint</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> string</code></pre><div class="info ">
+<pre><span id="VALstring_of_endpoint"><span class="keyword">val</span> string_of_endpoint</span> : <code class="type">('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -&gt; string</code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">string_of_endpoint ep</code> returns a textual representation of the
 endpoint <code class="code">ep</code>.</p>
 </div>
 </div>
 <h3 id="2_Resumptioncombinators">Resumption combinators</h3>
-<pre><span id="VAL(@=)"><span class="keyword">val</span> (@=)</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> 'm * <a href="Session.html#TYPEet">Session.et</a>) -><br>       ((('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, ('c, 'd) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEseq">Session.seq</a>,<br>        (('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, ('d, 'c) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEseq">Session.seq</a>)<br>       <a href="Session.html#TYPEst">Session.st</a> -> 'm * ('c, 'd) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VAL(@=)"><span class="keyword">val</span> (@=)</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -&gt; 'm * <a href="Session.html#TYPEet">Session.et</a>) -&gt;<br>       ((('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, ('c, 'd) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEseq">Session.seq</a>,<br>        (('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, ('d, 'c) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEseq">Session.seq</a>)<br>       <a href="Session.html#TYPEst">Session.st</a> -&gt; 'm * ('c, 'd) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">f @= ep</code> evaluates <code class="code">f ep</code>.</p>
 </div>
@@ -176,7 +176,7 @@ endpoint <code class="code">ep</code>.</p>
 </ul>
 </div>
 
-<pre><span id="VAL(@>)"><span class="keyword">val</span> (@&gt;)</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -> <a href="Session.html#TYPEet">Session.et</a>) -><br>       ((('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, ('c, 'd) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEseq">Session.seq</a>,<br>        (('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, ('d, 'c) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEseq">Session.seq</a>)<br>       <a href="Session.html#TYPEst">Session.st</a> -> ('c, 'd) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
+<pre><span id="VAL(@>)"><span class="keyword">val</span> (@&gt;)</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a> -&gt; <a href="Session.html#TYPEet">Session.et</a>) -&gt;<br>       ((('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, ('c, 'd) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEseq">Session.seq</a>,<br>        (('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, ('d, 'c) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEseq">Session.seq</a>)<br>       <a href="Session.html#TYPEst">Session.st</a> -&gt; ('c, 'd) <a href="Session.html#TYPEst">Session.st</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">f @&gt; ep</code> evaluates <code class="code">f ep</code>.</p>
 </div>

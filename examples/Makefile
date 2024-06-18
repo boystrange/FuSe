@@ -17,12 +17,13 @@ TESTS = \
   Tlock \
   Techo \
   TrecursiveEcho \
+  Tancbn \
   $(NULL)
 
 TESTS_OPT = $(TESTS:%=%.opt)
 
-OCAMLC = ocamlc -I ../src -w +A -rectypes -thread unix.cma threads.cma
-OCAMLOPT = ocamlopt -I ../src -w +A -rectypes -thread unix.cmxa threads.cmxa
+OCAMLC = ocamlc -I ../src -I +unix -w +A -rectypes -thread unix.cma threads.cma
+OCAMLOPT = ocamlopt -I ../src -I +unix -w +A -rectypes -thread unix.cmxa threads.cmxa
 DECODER = ../decoder/rosetta
 
 all: $(TESTS) $(TESTS_OPT)

@@ -1,7 +1,19 @@
 type token =
-  | LID of (string)
-  | CID of (string)
-  | OID of (string)
+  | LID of (
+# 60 "parser.mly"
+        string
+# 6 "parser.mli"
+)
+  | CID of (
+# 61 "parser.mly"
+        string
+# 11 "parser.mli"
+)
+  | OID of (
+# 62 "parser.mly"
+        string
+# 16 "parser.mli"
+)
   | LPAREN
   | RPAREN
   | LBRACK

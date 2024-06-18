@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
@@ -32,26 +32,26 @@
 </div>
 
 
-<pre><span id="VALreturn"><span class="keyword">val</span> return</span> : <code class="type">'m -> ('t0, 't0, 'm) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VALreturn"><span class="keyword">val</span> return</span> : <code class="type">'m -&gt; ('t0, 't0, 'm) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">return e</code> is the trivial monadic computation that does not
   perform communications and returns the value of <code class="code">e</code>.</p>
 </div>
 </div>
 
-<pre><span id="VAL(>>=)"><span class="keyword">val</span> (&gt;&gt;=)</span> : <code class="type">('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       ('a -> ('t1, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a>) -> ('t0, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VAL(>>=)"><span class="keyword">val</span> (&gt;&gt;=)</span> : <code class="type">('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -&gt;<br>       ('a -&gt; ('t1, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a>) -&gt; ('t0, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
 <div class="info-desc">
 <p>The monadic composition operator.</p>
 </div>
 </div>
 
-<pre><span id="VAL(>>>)"><span class="keyword">val</span> (&gt;&gt;&gt;)</span> : <code class="type">('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       ('t1, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a> -> ('t0, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VAL(>>>)"><span class="keyword">val</span> (&gt;&gt;&gt;)</span> : <code class="type">('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -&gt;<br>       ('t1, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a> -&gt; ('t0, 't2, 'b) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">m1 &gt;&gt;&gt; m2</code> is a shortcut for <code class="code">m1 &gt;&gt;= fun _ -&gt; m2</code>.</p>
 </div>
 </div>
 
-<pre><span id="VALfix"><span class="keyword">val</span> fix</span> : <code class="type">(('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -> ('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a>) -><br>       ('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VALfix"><span class="keyword">val</span> fix</span> : <code class="type">(('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -&gt; ('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a>) -&gt;<br>       ('t0, 't1, 'a) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
 <div class="info-desc">
 <p>Fixpoint operator for monadic computations. <code class="code">fix (fun x -&gt; m)</code>
   represents the same computation as <code class="code">m</code> in which <code class="code">x</code> is bound to <code class="code">m</code>
@@ -59,7 +59,7 @@
 </div>
 </div>
 
-<pre><span id="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, <a href="Session.html#TYPEet">Session.et</a>, unit) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       (('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, <a href="Session.html#TYPEet">Session.et</a>, 'm) <a href="Session.Monadic.html#TYPEt">t</a> -> 'm</code></pre><div class="info ">
+<pre><span id="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type">(('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, <a href="Session.html#TYPEet">Session.et</a>, unit) <a href="Session.Monadic.html#TYPEt">t</a> -&gt;<br>       (('b, 'a) <a href="Session.html#TYPEst">Session.st</a>, <a href="Session.html#TYPEet">Session.et</a>, 'm) <a href="Session.Monadic.html#TYPEt">t</a> -&gt; 'm</code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">connect ms mc</code> creates a new session that connects the server
   <code class="code">ms</code>, spawned into a new thread, and the client <code class="code">mc</code>. The result is
@@ -74,13 +74,13 @@
 </div>
 </div>
 
-<pre><span id="VALsend"><span class="keyword">val</span> send</span> : <code class="type">'m -><br>       (('m * ('b, 'a) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEot">Session.ot</a>, ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, unit)<br>       <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VALsend"><span class="keyword">val</span> send</span> : <code class="type">'m -&gt;<br>       (('m * ('b, 'a) <a href="Session.html#TYPEst">Session.st</a>) <a href="Session.html#TYPEot">Session.ot</a>, ('a, 'b) <a href="Session.html#TYPEst">Session.st</a>, unit)<br>       <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">send e</code> sends the message <code class="code">e</code> on the session endpoint.</p>
 </div>
 </div>
 
-<pre><span id="VALbranch"><span class="keyword">val</span> branch</span> : <code class="type">('t0, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       ('t1, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -><br>       (('t0, 't1) <a href="Session.html#TYPEchoice">Session.choice</a> <a href="Session.html#TYPEit">Session.it</a>, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VALbranch"><span class="keyword">val</span> branch</span> : <code class="type">('t0, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -&gt;<br>       ('t1, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a> -&gt;<br>       (('t0, 't1) <a href="Session.html#TYPEchoice">Session.choice</a> <a href="Session.html#TYPEit">Session.it</a>, 't2, 'a) <a href="Session.Monadic.html#TYPEt">t</a></code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">branch mtrue mfalse</code> accepts a boolean selection from the
   session endpoint and executes either <code class="code">mtrue</code> or <code class="code">mfalse</code>
